@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:id="@+id/scrolling_vehicle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/translucid"
+    android:fitsSystemWindows="true"
+    app:layout_constraintTop_toTopOf="@+id/guidelineToolbar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/translucid">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPgCarouselVehicle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/h_guideline1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="350dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_vehicle_SliderDots"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/translucid"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/h_guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/h_guideline1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="360dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="380dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/v_guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="40dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/v_guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="40dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardV_vehicleInfo"
+            android:layout_width="0dp"
+            android:layout_height="350dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/h_guideline3">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/translucid">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/v_guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="40dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/v_guideline4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="40dp" />
+
+                <TextView
+                    android:id="@+id/tv_yearBrand_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/cardMarginBigSize"
+                    android:background="@color/translucid"
+                    android:text="2020 Volkswagen"
+                    android:textSize="@dimen/textMediumSize"
+                    app:layout_constraintStart_toStartOf="@+id/v_guideline3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_model_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="Golf"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/textHugeSize"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline4"
+                    app:layout_constraintStart_toStartOf="@+id/v_guideline3"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_yearBrand_vehicle"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/tv_aPartirDe_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/cardMarginBigSize"
+                    android:background="@color/translucid"
+                    android:text="a partir de"
+                    android:textSize="@dimen/textSmallSize"
+                    app:layout_constraintEnd_toStartOf="@+id/v_guideline4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_monthPrice_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="R$1500"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/textUltraSize"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline4"
+                    app:layout_constraintEnd_toStartOf="@+id/v_guideline4"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_aPartirDe_vehicle"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/h_guideline4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.3" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/v_guideline5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/h_guideline5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/h_guideline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.7" />
+
+                <TextView
+                    android:id="@+id/tv_fuelType_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="Flex"
+                    android:textSize="@dimen/textMediumSize"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline5"
+                    app:layout_constraintEnd_toStartOf="@+id/v_guideline5"
+                    app:layout_constraintStart_toStartOf="@+id/v_guideline3"
+                    app:layout_constraintTop_toTopOf="@+id/h_guideline4" />
+
+                <TextView
+                    android:id="@+id/tv_doorQtd_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="4 Portas"
+                    android:textSize="@dimen/textMediumSize"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline5"
+                    app:layout_constraintEnd_toStartOf="@+id/v_guideline4"
+                    app:layout_constraintStart_toStartOf="@+id/v_guideline5"
+                    app:layout_constraintTop_toTopOf="@+id/h_guideline4" />
+
+                <View
+                    android:id="@+id/div1_cardVehicle"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline6"
+                    app:layout_constraintEnd_toStartOf="@+id/v_guideline5"
+                    app:layout_constraintStart_toStartOf="@+id/v_guideline5"
+                    app:layout_constraintTop_toTopOf="@+id/h_guideline4" />
+
+                <View
+                    android:id="@+id/div2_cardVehicle"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline6"
+                    app:layout_constraintEnd_toStartOf="@+id/v_guideline4"
+                    app:layout_constraintStart_toStartOf="@+id/v_guideline3"
+                    app:layout_constraintTop_toTopOf="@+id/h_guideline4" />
+
+                <TextView
+                    android:id="@+id/tv_engineType_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="Manual"
+                    android:textSize="@dimen/textMediumSize"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline6"
+                    app:layout_constraintEnd_toStartOf="@+id/v_guideline5"
+                    app:layout_constraintStart_toStartOf="@+id/v_guideline3"
+                    app:layout_constraintTop_toTopOf="@+id/h_guideline5" />
+
+                <TextView
+                    android:id="@+id/tv_engine_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="Motor 1.0"
+                    android:textSize="@dimen/textMediumSize"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline6"
+                    app:layout_constraintEnd_toStartOf="@+id/v_guideline4"
+                    app:layout_constraintStart_toStartOf="@+id/v_guideline5"
+                    app:layout_constraintTop_toTopOf="@+id/h_guideline5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/h_guideline7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.9" />
+
+                <ImageView
+                    android:id="@+id/iv_deliveryDelay_vehicle"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@color/translucid"
+                    android:src="@drawable/ic_check_greenie_24dp"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline7"
+                    app:layout_constraintStart_toStartOf="@+id/v_guideline3" />
+
+                <TextView
+                    android:id="@+id/tv_deliveryDelay_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="Entrega em até 60 dias úteis"
+                    android:textSize="@dimen/textSmallSize"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/iv_deliveryDelay_vehicle" />
+
+                <TextView
+                    android:id="@+id/tv_km_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="Carro 0 Km"
+                    android:textSize="@dimen/textSmallSize"
+                    app:layout_constraintBottom_toTopOf="@+id/h_guideline7"
+                    app:layout_constraintEnd_toStartOf="@+id/v_guideline4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="850dp" />
+
+        <TextView
+            android:id="@+id/tv_franchiseDetails_vehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/cardMarginMediumSize"
+            android:background="@color/translucid"
+            android:text="Informações de Assinatura"
+            android:textSize="@dimen/textMediumSize"
+            app:layout_constraintBottom_toTopOf="@+id/h_guideline8"
+            app:layout_constraintStart_toStartOf="@+id/v_guideline1" />
+
+        <View
+            android:id="@+id/div3_cardVehicle"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/h_guideline8"
+            app:layout_constraintEnd_toStartOf="@+id/v_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/v_guideline1" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:background="@drawable/card_noshadow"
+            app:layout_constraintEnd_toStartOf="@+id/v_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/v_guideline1"
+            app:layout_constraintTop_toTopOf="@+id/h_guideline8">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/v_guideline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.33" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/v_guideline7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.66" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/translucid"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/v_guideline6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_month_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="12"
+                    android:textSize="@dimen/textHugeSize" />
+
+                <TextView
+                    android:id="@+id/tv_monthDesc_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="meses"
+                    android:textSize="@dimen/textSmallSize" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/div4_cardVehicle"
+                android:layout_width="1dp"
+                android:layout_height="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/v_guideline6"
+                app:layout_constraintStart_toStartOf="@+id/v_guideline6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/translucid"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/v_guideline7"
+                app:layout_constraintStart_toStartOf="@+id/v_guideline6"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_planType_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="24"
+                    android:textSize="@dimen/textHugeSize" />
+
+                <TextView
+                    android:id="@+id/tv_planTypeDesc_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="mil km"
+                    android:textSize="@dimen/textSmallSize" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/div5_cardVehicle"
+                android:layout_width="1dp"
+                android:layout_height="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/v_guideline7"
+                app:layout_constraintStart_toStartOf="@+id/v_guideline7"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/translucid"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/v_guideline7"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_addFranch_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="R$1,50"
+                    android:textSize="@dimen/textBigSize" />
+
+                <TextView
+                    android:id="@+id/tv_addFranchDesc_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/translucid"
+                    android:text="Km Adicional"
+                    android:textSize="@dimen/textSmallSize" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="1050dp" />
+
+        <TextView
+            android:id="@+id/tv_values_vehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/cardMarginMediumSize"
+            android:background="@color/translucid"
+            android:text="Valores"
+            android:textSize="@dimen/textMediumSize"
+            app:layout_constraintBottom_toTopOf="@+id/h_guideline9"
+            app:layout_constraintStart_toStartOf="@+id/v_guideline1" />
+
+        <View
+            android:id="@+id/div6_cardVehicle"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/h_guideline9"
+            app:layout_constraintEnd_toStartOf="@+id/v_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/v_guideline1" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="@dimen/cardMarginMediumSize"
+            android:background="@drawable/card_noshadow"
+            app:layout_constraintEnd_toStartOf="@+id/v_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/v_guideline1"
+            app:layout_constraintTop_toTopOf="@+id/h_guideline9">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/h_guideline10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.33" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/v_guideline8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/h_guideline11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.66" />
+
+            <TextView
+                android:id="@+id/tv_monthPDesc_vehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardMarginMediumSize"
+                android:background="@color/translucid"
+                android:text="Aluguel Mensal"
+                android:textSize="@dimen/textMediumSize"
+                app:layout_constraintBottom_toTopOf="@+id/h_guideline10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_extrasDesc_vehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardMarginMediumSize"
+                android:background="@color/translucid"
+                android:text="Acessórios"
+                android:textSize="@dimen/textMediumSize"
+                app:layout_constraintBottom_toTopOf="@+id/h_guideline11"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/h_guideline10" />
+
+            <TextView
+                android:id="@+id/tv_totalDesc_vehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardMarginMediumSize"
+                android:background="@color/translucid"
+                android:text="Total"
+                android:textSize="@dimen/textMediumSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/h_guideline11" />
+
+            <TextView
+                android:id="@+id/tv_monthP_vehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/cardMarginMediumSize"
+                android:background="@color/translucid"
+                android:text="R$ 1500.00"
+                android:textSize="@dimen/textMediumSize"
+                app:layout_constraintBottom_toTopOf="@+id/h_guideline10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_extras_vehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/cardMarginMediumSize"
+                android:background="@color/translucid"
+                android:text="R$ 100.00"
+                android:textSize="@dimen/textMediumSize"
+                app:layout_constraintBottom_toTopOf="@+id/h_guideline11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/h_guideline10" />
+
+            <TextView
+                android:id="@+id/tv_total_vehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/cardMarginMediumSize"
+                android:background="@color/translucid"
+                android:text="R$ 1600.00"
+                android:textSize="@dimen/textMediumSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/h_guideline11" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="1380dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
