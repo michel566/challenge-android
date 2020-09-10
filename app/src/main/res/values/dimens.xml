@@ -4,6 +4,7 @@
     <dimen name="textTinySize">10sp</dimen>
     <dimen name="textSmallSize">12sp</dimen>
     <dimen name="textMediumSize">16sp</dimen>
+    <dimen name="textBigBoySize">18sp</dimen>
     <dimen name="textBigSize">20sp</dimen>
     <dimen name="textHugeSize">26sp</dimen>
     <dimen name="textUltraSize">40sp</dimen>

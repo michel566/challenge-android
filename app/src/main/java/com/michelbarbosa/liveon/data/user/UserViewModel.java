@@ -104,7 +104,7 @@ public class UserViewModel extends AndroidViewModel {
         return statusResultList;
     }
 
-    public void fullWipe(){
+    public void userWipe(){
         repository.deleteAllStatus();
         repository.deleteAllOrder();
         repository.deleteUser();

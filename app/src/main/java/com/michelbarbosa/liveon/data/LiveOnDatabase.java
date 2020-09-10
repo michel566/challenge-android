@@ -15,7 +15,8 @@ import com.michelbarbosa.liveon.data.entities.VehicleEntity;
 import com.michelbarbosa.liveon.data.orders.VehicleDAO;
 import com.michelbarbosa.liveon.data.user.UserDAO;
 
-@Database(entities = {UserEntity.class, OrderEntity.class, StatusEntity.class, OrderVehicleEntity.class, VehicleEntity.class, ImageVehicleEntity.class}, version = 1)
+@Database(entities = {UserEntity.class, OrderEntity.class, StatusEntity.class, OrderVehicleEntity.class,
+        VehicleEntity.class, ImageVehicleEntity.class}, version = 1, exportSchema = false)
 public abstract class LiveOnDatabase extends RoomDatabase {
 
     public abstract UserDAO userDAO();

@@ -14,10 +14,6 @@ public interface LiveOnRequestContracts {
         void signUpCallbackSuccess(String token);
 
         void signUpCallbackFailed(String error);
-
-        void signInCallbackSuccess();
-
-        void signInCallbackFailed();
     }
 
     interface UserProfileView {
@@ -27,9 +23,9 @@ public interface LiveOnRequestContracts {
     }
 
     interface OrderListView {
-        void OrderListLoadSuccess(List<OrderResponse> responseList);
+        void orderListLoadSuccess(List<OrderResponse> responseList);
 
-        void OrderListLoadFailed(String error);
+        void orderListLoadFailed(String error);
     }
 
     interface VehicleDetailsView {
@@ -40,8 +36,6 @@ public interface LiveOnRequestContracts {
 
     interface Presenter {
         void login(Context context, String email, String password);
-
-        void login(Context context, String token);
 
         void loadUserProfileResponse(Context context, String token);
 

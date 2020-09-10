@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLight"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.activities.UserProfileActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -52,7 +51,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/marginTinySize"
                 android:background="@color/translucid"
-                android:text="Jessica Doe"
                 android:textSize="@dimen/textBigSize" />
 
             <TextView
@@ -61,7 +59,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/marginTinySize"
                 android:background="@color/translucid"
-                android:text="São Paulo - SP"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/textSmallSize" />
         </LinearLayout>
@@ -110,7 +107,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/translucid"
-            android:text="#1110 Volkswagen Golf"
             android:textSize="@dimen/textMediumSize"
             app:layout_constraintBottom_toTopOf="@+id/guideline11"
             app:layout_constraintEnd_toStartOf="@+id/bt_userProfile_next"
@@ -164,7 +160,7 @@
             android:layout_height="0dp"
             android:background="@color/translucid"
             android:gravity="center_vertical"
-            android:text="Sair"
+            android:text="@string/tv_userProfile_sair"
             android:textSize="@dimen/textMediumSize"
             app:layout_constraintBottom_toTopOf="@+id/guideline16"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
@@ -260,7 +256,6 @@
             app:layout_constraintGuide_percent="0.8" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

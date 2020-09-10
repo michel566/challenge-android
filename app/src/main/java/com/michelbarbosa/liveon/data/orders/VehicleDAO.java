@@ -42,4 +42,13 @@ public interface VehicleDAO {
     @Query("SELECT * FROM VehicleEntity")
     LiveData<List<VehicleEntity>> getVehicleEntityList();
 
+    @Query("DELETE FROM OrderVehicleEntity")
+    void deleteOrderVehicle();
+
+    @Query("DELETE FROM VehicleEntity")
+    void deleteVehicleEntity();
+
+    @Query("DELETE FROM ImageVehicleEntity")
+    void deleteImageVehicleEntity();
+
 }

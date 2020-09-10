@@ -55,6 +55,11 @@ public class UiUtil {
         window.setStatusBarColor(Color.BLACK);
     }
 
+    public static void requestFocusRedirectScroll(View view) {
+        view.requestFocus();
+        view.getParent().requestChildFocus(view, view);
+    }
+
     private static Bitmap decodeSampledBitmapFromResource(Context context, WindowManager wm, int resId, int[] taxCompress) {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
@@ -158,7 +163,6 @@ public class UiUtil {
                     dots[i].setImageDrawable(ContextCompat.getDrawable(context.getApplicationContext(), R.drawable.non_active_dot));
                 }
                 dots[position].setImageDrawable(ContextCompat.getDrawable(context.getApplicationContext(), R.drawable.active_dot));
-
             }
 
             @Override

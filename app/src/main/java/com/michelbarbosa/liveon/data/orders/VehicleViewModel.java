@@ -46,6 +46,7 @@ public class VehicleViewModel extends AndroidViewModel {
         repository.insertOrderVEntityList(orderEntityList);
     }
 
+
     public LiveData<List<OrderVehicleEntity>> getOrderVEntity() {
         return orderVEntity;
     }
@@ -71,4 +72,10 @@ public class VehicleViewModel extends AndroidViewModel {
     public LiveData<List<ImageVehicleEntity>> getImageList() {
         return imageList;
     }
+
+    public void orderWipe(){
+        repository.orderVehicleWipe();
+    }
+
+
 }

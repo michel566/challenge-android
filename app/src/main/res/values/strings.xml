@@ -13,4 +13,19 @@
 
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 
+    <string name="tv_currency">R$ %s</string>
+    <string name="tv_deliveryDelay_vehicle">Entrega em até %s dias úteis</string>
+    <string name="tv_engine_vehicle">Motor %s</string>
+    <string name="tv_doorQtd_vehicle">%s Portas</string>
+    <string name="tv_km_vehicle">Carro %s Km</string>
+    <string name="tv_monthDesc_vehicle">meses</string>
+    <string name="tv_planTypeDesc_vehicle">mil km</string>
+    <string name="tv_addFranchDesc_vehicle">Km Adicional</string>
+    <string name="tv_monthPDesc_vehicle">Aluguel Mensal</string>
+    <string name="tv_extrasDesc_vehicle">Acessórios</string>
+    <string name="tv_totalDesc_vehicle">Total</string>
+    <string name="tv_franchiseDetails_vehicle">Informações de Assinatura</string>
+    <string name="tv_values_vehicle">Valores</string>
+    <string name="tv_userProfile_sair">Sair</string>
+
 </resources>

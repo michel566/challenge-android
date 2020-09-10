@@ -123,7 +123,8 @@ public class MainActivity extends BaseActivity {
     protected void destroyApplication(Context context) {
         if (context != null) {
             clearData();
-            userViewModel.fullWipe();
+            vehicleViewModel.orderWipe();
+            userViewModel.userWipe();
             finishAffinity();
         }
     }

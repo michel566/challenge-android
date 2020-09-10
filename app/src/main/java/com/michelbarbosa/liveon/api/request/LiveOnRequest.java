@@ -18,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LiveOnRequest implements LiveOnRequestContracts.Presenter{
+public class LiveOnRequest implements LiveOnRequestContracts.Presenter {
 
     private LiveOnRequestContracts.AuthView authView;
     private LiveOnRequestContracts.UserProfileView userProfileView;
@@ -46,13 +46,6 @@ public class LiveOnRequest implements LiveOnRequestContracts.Presenter{
         DataService service = RetrofitClientInstance.getRetrofitInstance().create(DataService.class);
         Call<UserProfileResponse> call = service.Auth(email, password);
         serviceAuthSignUp(context, call);
-    }
-
-    @Override
-    public void login(Context context, String token) {
-        DataService service = RetrofitClientInstance.getRetrofitInstance().create(DataService.class);
-        Call<UserProfileResponse> call = service.Profile(token);
-        serviceAuthSignIn(context, call);
     }
 
     @Override
@@ -110,32 +103,6 @@ public class LiveOnRequest implements LiveOnRequestContracts.Presenter{
         });
     }
 
-    private void serviceAuthSignIn(Context context, Call<UserProfileResponse> call) {
-        final AlertDialog requestDialog = UiUtil.progressDialog(context, "Autenticando...");
-        requestDialog.show();
-        call.enqueue(new Callback<UserProfileResponse>() {
-            @Override
-            public void onResponse(Call<UserProfileResponse> call, Response<UserProfileResponse> response) {
-                requestDialog.dismiss();
-                if (response.isSuccessful()) {
-                    if (response.body() != null) {
-                        authView.signInCallbackSuccess();
-                    } else {
-                        authView.signInCallbackFailed();
-                    }
-                } else {
-                    authView.signInCallbackFailed();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<UserProfileResponse> call, Throwable t) {
-                authView.signInCallbackFailed();
-                requestDialog.dismiss();
-            }
-        });
-    }
-
     private void serviceLoadUserProfile(final Context context, Call<UserProfileResponse> call) {
         final AlertDialog requestDialog = UiUtil.progressDialog(context, "Carregando...");
         requestDialog.show();
@@ -156,7 +123,7 @@ public class LiveOnRequest implements LiveOnRequestContracts.Presenter{
 
             @Override
             public void onFailure(Call<UserProfileResponse> call, Throwable t) {
-                userProfileView.userProfileloadFailed(t.getMessage());
+                userProfileView.userProfileloadFailed("Falha na tentativa de conexão");
                 requestDialog.dismiss();
             }
         });
@@ -171,18 +138,18 @@ public class LiveOnRequest implements LiveOnRequestContracts.Presenter{
                 requestDialog.dismiss();
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
-                        orderListView.OrderListLoadSuccess(response.body());
+                        orderListView.orderListLoadSuccess(response.body());
                     } else {
-                        orderListView.OrderListLoadFailed("corpo do html nulo");
+                        orderListView.orderListLoadFailed("corpo do html nulo");
                     }
                 } else {
-                    orderListView.OrderListLoadFailed("não há resposta enviado do servidor");
+                    orderListView.orderListLoadFailed("não há resposta enviado do servidor");
                 }
             }
 
             @Override
             public void onFailure(Call<List<OrderResponse>> call, Throwable t) {
-                userProfileView.userProfileloadFailed(t.getMessage());
+                orderListView.orderListLoadFailed("Falha na tentativa de conexão");
                 requestDialog.dismiss();
             }
         });
@@ -208,7 +175,7 @@ public class LiveOnRequest implements LiveOnRequestContracts.Presenter{
 
             @Override
             public void onFailure(Call<OrderDetailsResponse> call, Throwable t) {
-                userProfileView.userProfileloadFailed(t.getMessage());
+                vehicleDetailsView.vehicleLoadFailed("Falha na tentativa de conexã");
                 requestDialog.dismiss();
             }
         });

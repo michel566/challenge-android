@@ -2,6 +2,7 @@ package com.michelbarbosa.liveon.ui.activities;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,11 +14,8 @@ import com.michelbarbosa.liveon.api.request.LiveOnRequest;
 import com.michelbarbosa.liveon.api.request.LiveOnRequestContracts;
 import com.michelbarbosa.liveon.api.response.OrderDetailsResponse;
 import com.michelbarbosa.liveon.data.entities.ImageVehicleEntity;
-import com.michelbarbosa.liveon.data.entities.OrderEntity;
 import com.michelbarbosa.liveon.data.entities.VehicleEntity;
-import com.michelbarbosa.liveon.domain.OrderDetailsVehicle;
 import com.michelbarbosa.liveon.domain.OrderVehicle;
-import com.michelbarbosa.liveon.mapper.LiveOnMappers;
 import com.michelbarbosa.liveon.ui.adapters.VehicleImageAdapter;
 import com.michelbarbosa.liveon.utils.UiUtil;
 
@@ -31,7 +29,6 @@ public class VehicleActivity extends MainActivity implements LiveOnRequestContra
     private LiveOnRequestContracts.Presenter vehiclePresenter = new LiveOnRequest(this);
 
     private OrderVehicle mOrder;
-    private OrderDetailsVehicle mVehicle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,21 +45,7 @@ public class VehicleActivity extends MainActivity implements LiveOnRequestContra
 
     private void toolbarSettings() {
         setDefaultToolbarColor();
-        getOrder();
         setToolbarArrowBackPressed();
-    }
-
-    private void getOrder() {
-        userViewModel.getOrderList().observe(this, new Observer<List<OrderEntity>>() {
-            @Override
-            public void onChanged(List<OrderEntity> orderEntityList) {
-                for (OrderEntity order : orderEntityList) {
-                    if (order.getOrderId() == mOrder.getOrderId()) {
-                        setToolbarTitle(order.getSubmodel_name());
-                    }
-                }
-            }
-        });
     }
 
     private void setObservers() {
@@ -70,7 +53,7 @@ public class VehicleActivity extends MainActivity implements LiveOnRequestContra
             @Override
             public void onChanged(List<ImageVehicleEntity> imageVehicleEntities) {
                 if (!imageVehicleEntities.isEmpty()) {
-                    setImageToAdapter(imageVehicleEntities);
+                   setImageToAdapter(imageVehicleEntities);
                 }
             }
         });
@@ -87,20 +70,12 @@ public class VehicleActivity extends MainActivity implements LiveOnRequestContra
                 }
             }
         });
-
-        vehicleViewModel.getVehicleResult().observe(this, new Observer<List<OrderDetailsVehicle>>() {
-            @Override
-            public void onChanged(List<OrderDetailsVehicle> vehicleList) {
-                if (!vehicleList.isEmpty()) {
-                    mVehicle = LiveOnMappers.getOrderDetailsVehicle(vehicleList, mOrder.getOrderId());
-                }
-            }
-        });
     }
 
     @Override
     public void vehicleLoadSuccess(OrderDetailsResponse response) {
         vehicleViewModel.insertVehicleDetail(response, mOrder.getOrderId());
+        setObservers();
     }
 
     @Override
@@ -109,28 +84,58 @@ public class VehicleActivity extends MainActivity implements LiveOnRequestContra
 
     private void setViews(VehicleEntity vehicle) {
         if (vehicle != null) {
+            setToolbarTitle(vehicle.getVehicleBrand() +
+                    " " + vehicle.getVehicleModel());
+            TextView tvYearBrand = findViewById(R.id.tv_yearBrand_vehicle);
+            TextView tvModel = findViewById(R.id.tv_model_vehicle);
+            TextView tvMonthValue = findViewById(R.id.tv_monthValue_vehicle);
+            TextView tvFuelType = findViewById(R.id.tv_fuelType_vehicle);
+            TextView tvQtdDoor = findViewById(R.id.tv_doorQtd_vehicle);
+            TextView tvEngineType = findViewById(R.id.tv_engineType_vehicle);
+            TextView tvEngine = findViewById(R.id.tv_engine_vehicle);
+            ImageView ivDeliveryIsOk = findViewById(R.id.iv_deliveryDelay_vehicle);
+            TextView tvDeliveryDelay = findViewById(R.id.tv_deliveryDelay_vehicle);
+            TextView tvKm = findViewById(R.id.tv_km_vehicle);
+            TextView tvMonthSignature = findViewById(R.id.tv_monthSignature_vehicle);
+            TextView tvPlan = findViewById(R.id.tv_planType_vehicle);
+            TextView tvFranchAdd = findViewById(R.id.tv_addFranch_vehicle);
+            TextView tvMonthP = findViewById(R.id.tv_monthP_vehicle);
+            TextView tvExtras = findViewById(R.id.tv_extras_vehicle);
+            TextView tvTotal = findViewById(R.id.tv_total_vehicle);
 
+            tvYearBrand.setText(new StringBuilder(
+                    vehicle.getVehicleYear()).append(" ")
+                    .append(vehicle.getVehicleBrand()));
+            tvModel.setText(vehicle.getVehicleModel());
+            tvMonthValue.setText(getResources().getString(R.string.tv_currency,
+                    String.valueOf(vehicle.getMonthlyPrice())));
+            tvFuelType.setText(vehicle.getFuelType());
+            tvQtdDoor.setText(getResources().getString(R.string.tv_doorQtd_vehicle,
+                    String.valueOf(vehicle.getDoorsQtd())));
+            tvEngineType.setText(vehicle.getEngineType());
+            tvEngine.setText(getResources().getString(R.string.tv_engine_vehicle,
+                    vehicle.getEngine()));
+            if(vehicle.getDeliveryDelay() > 0){
+                tvDeliveryDelay.setText(
+                        getResources().getString(R.string.tv_deliveryDelay_vehicle,
+                                String.valueOf(vehicle.getDeliveryDelay())));
+                ivDeliveryIsOk.setVisibility(View.VISIBLE);
+            } else {
+                ivDeliveryIsOk.setVisibility(View.GONE);
+            }
+            tvKm.setText(getResources().getString(R.string.tv_km_vehicle,
+                    String.valueOf(vehicle.getKm())));
+            tvMonthSignature.setText(String.valueOf(vehicle.getMonths()));
+            tvPlan.setText(String.valueOf(vehicle.getPlanType()));
+            tvFranchAdd.setText(getResources().getString(R.string.tv_currency,
+                    vehicle.getAdditionalFranchise().replace(".", ",")));
+            tvMonthP.setText(getResources().getString(R.string.tv_currency,
+                    vehicle.getMonthlyPrice() + ",00"));
+            tvExtras.setText(getResources().getString(R.string.tv_currency,
+                    vehicle.getExtras() + ",00"));
+            tvTotal.setText(getResources().getString(R.string.tv_currency,
+                    vehicle.getTotalPrice() + ",00"));
         }
-
-        TextView tvFuelType = findViewById(R.id.tv_fuelType_vehicle);
-        TextView tvQtdDoor = findViewById(R.id.tv_doorQtd_vehicle);
-
-        //teste de esconder a toolbar
-        tvFuelType.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toolbar.setVisibility(View.GONE);
-            }
-        });
-
-        tvQtdDoor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toolbar.setVisibility(View.VISIBLE);
-            }
-        });
-
-
     }
 
     private void setImageToAdapter(List<ImageVehicleEntity> imageList) {
@@ -151,20 +156,5 @@ public class VehicleActivity extends MainActivity implements LiveOnRequestContra
         super.onBackPressed();
         backToVehicleListActivity(this);
     }
-
-
-        /*
-        // Hide the status bar.
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
-        // Remember that you should never show the action bar if the
-        // status bar is hidden, so hide that too if necessary.
-        ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
-
- */
 
 }

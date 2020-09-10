@@ -72,9 +72,6 @@ public class LoginActivity extends BaseActivity
             @Override
             public void onClick(View view) {
                 btLogin.setEnabled(false);
-                //todo remover depois dos testes
-              //  autoPrenchimento();
-
                 senha = null;
                 if (Util.validateEmail(LoginActivity.this, edEmail, tvEmailError) &&
                         Util.checkPasswNull(LoginActivity.this, edSenha, tvSenhaError)) {
@@ -85,11 +82,6 @@ public class LoginActivity extends BaseActivity
                 btLogin.setEnabled(true);
             }
         });
-    }
-
-    private void autoPrenchimento() {
-        edEmail.setText("jessica@challenge.com");
-        edSenha.setText("pass123");
     }
 
     private void resetOnClickEditText(EditText et) {
@@ -113,7 +105,7 @@ public class LoginActivity extends BaseActivity
     }
 
     private void autoSignIn() {
-        authPresenter.login(this, sharedPreferences.getString(TOKEN_PREF, ""));
+        advanceToUserProfileActivity();
     }
 
     @Override
@@ -127,17 +119,6 @@ public class LoginActivity extends BaseActivity
         tvEmailError.setVisibility(View.VISIBLE);
         edEmail.setBackground(getDrawable(R.drawable.ed_error));
         tvEmailError.setText(error);
-        resetOnClickEditText(edEmail);
-        resetOnClickEditText(edSenha);
-    }
-
-    @Override
-    public void signInCallbackSuccess() {
-        advanceToUserProfileActivity();
-    }
-
-    @Override
-    public void signInCallbackFailed() {
         resetOnClickEditText(edEmail);
         resetOnClickEditText(edSenha);
         clearData();

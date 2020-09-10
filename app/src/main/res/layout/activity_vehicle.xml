@@ -102,7 +102,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/cardMarginBigSize"
                     android:background="@color/translucid"
-                    android:text="2020 Volkswagen"
                     android:textSize="@dimen/textMediumSize"
                     app:layout_constraintStart_toStartOf="@+id/v_guideline3"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -112,7 +111,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="Golf"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/textHugeSize"
                     app:layout_constraintBottom_toTopOf="@+id/h_guideline4"
@@ -126,17 +124,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/cardMarginBigSize"
                     android:background="@color/translucid"
-                    android:text="a partir de"
                     android:textSize="@dimen/textSmallSize"
                     app:layout_constraintEnd_toStartOf="@+id/v_guideline4"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_monthPrice_vehicle"
+                    android:id="@+id/tv_monthValue_vehicle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="R$1500"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/textUltraSize"
                     app:layout_constraintBottom_toTopOf="@+id/h_guideline4"
@@ -177,7 +173,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="Flex"
                     android:textSize="@dimen/textMediumSize"
                     app:layout_constraintBottom_toTopOf="@+id/h_guideline5"
                     app:layout_constraintEnd_toStartOf="@+id/v_guideline5"
@@ -189,7 +184,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="4 Portas"
                     android:textSize="@dimen/textMediumSize"
                     app:layout_constraintBottom_toTopOf="@+id/h_guideline5"
                     app:layout_constraintEnd_toStartOf="@+id/v_guideline4"
@@ -219,7 +213,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="Manual"
                     android:textSize="@dimen/textMediumSize"
                     app:layout_constraintBottom_toTopOf="@+id/h_guideline6"
                     app:layout_constraintEnd_toStartOf="@+id/v_guideline5"
@@ -231,7 +224,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="Motor 1.0"
                     android:textSize="@dimen/textMediumSize"
                     app:layout_constraintBottom_toTopOf="@+id/h_guideline6"
                     app:layout_constraintEnd_toStartOf="@+id/v_guideline4"
@@ -251,6 +243,7 @@
                     android:layout_height="20dp"
                     android:background="@color/translucid"
                     android:src="@drawable/ic_check_greenie_24dp"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toTopOf="@+id/h_guideline7"
                     app:layout_constraintStart_toStartOf="@+id/v_guideline3" />
 
@@ -259,7 +252,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="Entrega em até 60 dias úteis"
                     android:textSize="@dimen/textSmallSize"
                     app:layout_constraintBottom_toTopOf="@+id/h_guideline7"
                     app:layout_constraintStart_toEndOf="@+id/iv_deliveryDelay_vehicle" />
@@ -269,7 +261,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="Carro 0 Km"
                     android:textSize="@dimen/textSmallSize"
                     app:layout_constraintBottom_toTopOf="@+id/h_guideline7"
                     app:layout_constraintEnd_toStartOf="@+id/v_guideline4" />
@@ -289,10 +280,10 @@
             android:id="@+id/tv_franchiseDetails_vehicle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/cardMarginMediumSize"
+            android:layout_marginBottom="@dimen/cardMarginSmallSize"
             android:background="@color/translucid"
-            android:text="Informações de Assinatura"
-            android:textSize="@dimen/textMediumSize"
+            android:text="@string/tv_franchiseDetails_vehicle"
+            android:textSize="@dimen/textBigBoySize"
             app:layout_constraintBottom_toTopOf="@+id/h_guideline8"
             app:layout_constraintStart_toStartOf="@+id/v_guideline1" />
 
@@ -340,11 +331,10 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/tv_month_vehicle"
+                    android:id="@+id/tv_monthSignature_vehicle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="12"
                     android:textSize="@dimen/textHugeSize" />
 
                 <TextView
@@ -352,7 +342,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="meses"
+                    android:text="@string/tv_monthDesc_vehicle"
                     android:textSize="@dimen/textSmallSize" />
 
             </LinearLayout>
@@ -383,7 +373,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="24"
                     android:textSize="@dimen/textHugeSize" />
 
                 <TextView
@@ -391,7 +380,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="mil km"
+                    android:text="@string/tv_planTypeDesc_vehicle"
                     android:textSize="@dimen/textSmallSize" />
 
             </LinearLayout>
@@ -422,7 +411,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="R$1,50"
                     android:textSize="@dimen/textBigSize" />
 
                 <TextView
@@ -430,7 +418,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/translucid"
-                    android:text="Km Adicional"
+                    android:text="@string/tv_addFranchDesc_vehicle"
                     android:textSize="@dimen/textSmallSize" />
 
             </LinearLayout>
@@ -448,10 +436,10 @@
             android:id="@+id/tv_values_vehicle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/cardMarginMediumSize"
+            android:layout_marginBottom="@dimen/cardMarginSmallSize"
             android:background="@color/translucid"
-            android:text="Valores"
-            android:textSize="@dimen/textMediumSize"
+            android:text="@string/tv_values_vehicle"
+            android:textSize="@dimen/textBigBoySize"
             app:layout_constraintBottom_toTopOf="@+id/h_guideline9"
             app:layout_constraintStart_toStartOf="@+id/v_guideline1" />
 
@@ -499,8 +487,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/cardMarginMediumSize"
                 android:background="@color/translucid"
-                android:text="Aluguel Mensal"
-                android:textSize="@dimen/textMediumSize"
+                android:text="@string/tv_monthPDesc_vehicle"
+                android:textSize="@dimen/textBigBoySize"
                 app:layout_constraintBottom_toTopOf="@+id/h_guideline10"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -511,8 +499,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/cardMarginMediumSize"
                 android:background="@color/translucid"
-                android:text="Acessórios"
-                android:textSize="@dimen/textMediumSize"
+                android:text="@string/tv_extrasDesc_vehicle"
+                android:textSize="@dimen/textBigBoySize"
                 app:layout_constraintBottom_toTopOf="@+id/h_guideline11"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/h_guideline10" />
@@ -523,8 +511,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/cardMarginMediumSize"
                 android:background="@color/translucid"
-                android:text="Total"
-                android:textSize="@dimen/textMediumSize"
+                android:text="@string/tv_totalDesc_vehicle"
+                android:textSize="@dimen/textBigBoySize"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/h_guideline11" />
@@ -535,8 +523,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/cardMarginMediumSize"
                 android:background="@color/translucid"
-                android:text="R$ 1500.00"
-                android:textSize="@dimen/textMediumSize"
+                android:textSize="@dimen/textBigBoySize"
                 app:layout_constraintBottom_toTopOf="@+id/h_guideline10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -547,8 +534,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/cardMarginMediumSize"
                 android:background="@color/translucid"
-                android:text="R$ 100.00"
-                android:textSize="@dimen/textMediumSize"
+                android:textSize="@dimen/textBigBoySize"
                 app:layout_constraintBottom_toTopOf="@+id/h_guideline11"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/h_guideline10" />
@@ -559,8 +545,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/cardMarginMediumSize"
                 android:background="@color/translucid"
-                android:text="R$ 1600.00"
-                android:textSize="@dimen/textMediumSize"
+                android:textSize="@dimen/textBigBoySize"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/h_guideline11" />

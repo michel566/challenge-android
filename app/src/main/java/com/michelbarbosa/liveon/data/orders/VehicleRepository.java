@@ -8,9 +8,9 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.michelbarbosa.liveon.data.LiveOnDatabase;
 import com.michelbarbosa.liveon.data.entities.ImageVehicleEntity;
-import com.michelbarbosa.liveon.domain.OrderDetailsVehicle;
 import com.michelbarbosa.liveon.data.entities.OrderVehicleEntity;
 import com.michelbarbosa.liveon.data.entities.VehicleEntity;
+import com.michelbarbosa.liveon.domain.OrderDetailsVehicle;
 import com.michelbarbosa.liveon.mapper.LiveOnMappers;
 
 import java.util.List;
@@ -22,6 +22,7 @@ class VehicleRepository {
     private MutableLiveData<List<OrderDetailsVehicle>> mOrderDetailsListResult = new MutableLiveData<>();
     private LiveData<List<ImageVehicleEntity>> mImageVehicleList;
     private LiveData<List<VehicleEntity>> mVehicleList;
+    private int count;
 
     private VehicleDAO mDao;
 
@@ -163,6 +164,32 @@ class VehicleRepository {
         @Override
         protected void onPostExecute(List<OrderDetailsVehicle> orderVehicleEntityList) {
             delegate.asyncFinishedOrderVehicleList(orderVehicleEntityList);
+        }
+    }
+
+
+    /**
+     * DELETE - Order Wipe
+     **/
+
+    void orderVehicleWipe() {
+        OrderVehicleWipe task = new OrderVehicleWipe(mDao);
+        task.execute();
+    }
+
+    private static class OrderVehicleWipe extends AsyncTask<Void, Void, Void> {
+        private VehicleDAO asyncTaskDao;
+
+        OrderVehicleWipe(VehicleDAO asyncTaskDao) {
+            this.asyncTaskDao = asyncTaskDao;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            asyncTaskDao.deleteImageVehicleEntity();
+            asyncTaskDao.deleteVehicleEntity();
+            asyncTaskDao.deleteOrderVehicle();
+            return null;
         }
     }
 

@@ -22,7 +22,7 @@ public class VehicleListAdapter extends RecyclerView.Adapter<VehicleListAdapter.
         this.mItemClickListener = itemClickListener;
     }
 
-    public void setOrderList(List<OrderVehicle> orderList){
+    public void setOrderList(List<OrderVehicle> orderList) {
         this.mOrderVehicleList = orderList;
         notifyDataSetChanged();
     }
@@ -50,7 +50,7 @@ public class VehicleListAdapter extends RecyclerView.Adapter<VehicleListAdapter.
         return mOrderVehicleList.get(adapterPosition);
     }
 
-    class VehicleHolder extends RecyclerView.ViewHolder{
+    class VehicleHolder extends RecyclerView.ViewHolder {
         TextView tvDesc;
         ViewGroup itemArea;
         final ItemClickListener itemClickListener;
@@ -68,9 +68,10 @@ public class VehicleListAdapter extends RecyclerView.Adapter<VehicleListAdapter.
                 }
             });
         }
+
     }
 
-    public interface ItemClickListener{
+    public interface ItemClickListener {
         void onClick(OrderVehicle orderVehicle);
     }
 

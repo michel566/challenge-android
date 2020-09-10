@@ -83,15 +83,15 @@ public class UserProfileActivity extends MainActivity implements LiveOnRequestCo
             userViewModel.getUserEntity().observe(UserProfileActivity.this, new Observer<UserEntity>() {
                 @Override
                 public void onChanged(final UserEntity userEntity) {
-                    if(userEntity != null){
+                    if (userEntity != null) {
                         userViewModel.getOrderList().observe(UserProfileActivity.this, new Observer<List<OrderEntity>>() {
                             @Override
                             public void onChanged(final List<OrderEntity> orderEntityList) {
-                                if(orderEntityList != null){
+                                if (orderEntityList != null) {
                                     userViewModel.getStatusList().observe(UserProfileActivity.this, new Observer<List<StatusEntity>>() {
                                         @Override
                                         public void onChanged(List<StatusEntity> statusEntityList) {
-                                            if(statusEntityList != null){
+                                            if (statusEntityList != null) {
                                                 mUser = LiveOnMappers.userEntityToDomain(userEntity, orderEntityList, statusEntityList);
                                                 bindDataViews();
                                             }
@@ -115,6 +115,9 @@ public class UserProfileActivity extends MainActivity implements LiveOnRequestCo
                 .append(" - ")
                 .append(mUser.getUf()).toString());
         setImageAvatar(mUser.getUrlPictureAvatar());
+        tvOrder.setText(new StringBuilder().append("# ")
+                .append(mUser.getOrderList().get(0).getOrderId())
+                .append(" ").append(mUser.getOrderList().get(0).getSubmodel_name()).toString());
         setFragment(mUser.getOrderList());
         btBack.setOnClickListener(new View.OnClickListener() {
             @Override

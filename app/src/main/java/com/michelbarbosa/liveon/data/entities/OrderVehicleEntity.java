@@ -28,4 +28,5 @@ public class OrderVehicleEntity {
     public String getSubmodel_name() {
         return submodel_name;
     }
+
 }

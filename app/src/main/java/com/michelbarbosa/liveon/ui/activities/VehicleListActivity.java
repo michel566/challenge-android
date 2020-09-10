@@ -37,9 +37,7 @@ public class VehicleListActivity extends MainActivity
         setOperationList();
         setViews();
         setObservers();
-        if (mOrderVehicleList == null) {
-            orderPresenter.loadOrdersResponse(this, sharedPreferences.getString(TOKEN_PREF, ""));
-        }
+        orderPresenter.loadOrdersResponse(this, sharedPreferences.getString(TOKEN_PREF, ""));
     }
 
     private void toolbarSettings() {
@@ -57,21 +55,34 @@ public class VehicleListActivity extends MainActivity
     }
 
     @Override
-    public void OrderListLoadSuccess(List<OrderResponse> response) {
-        vehicleViewModel.insertOrderVehicle(response);
+    public void orderListLoadSuccess(List<OrderResponse> responseList) {
+        vehicleViewModel.insertOrderVehicle(responseList);
         setObservers();
     }
 
     @Override
-    public void OrderListLoadFailed(String error) {
+    public void orderListLoadFailed(String error) {
+
     }
 
     private void setObservers() {
         vehicleViewModel.getOrderVEntity().observe(this, new Observer<List<OrderVehicleEntity>>() {
             @Override
             public void onChanged(List<OrderVehicleEntity> orderVEntityList) {
-                mOrderVehicleList = new ArrayList<>(LiveOnMappers.orderEntityToOrderVehicleEntity(orderVEntityList));
-                adapter.setOrderList(mOrderVehicleList);
+                if (!orderVEntityList.isEmpty()) {
+                    mOrderVehicleList = new ArrayList<>(LiveOnMappers.orderEntityToOrderVehicleEntity(orderVEntityList));
+                    adapter.setOrderList(mOrderVehicleList);
+                }
+            }
+        });
+
+        vehicleViewModel.getOrderVEntityResult().observe(this, new Observer<List<OrderVehicleEntity>>() {
+            @Override
+            public void onChanged(List<OrderVehicleEntity> orderVEntityList) {
+                if (!orderVEntityList.isEmpty()) {
+                    mOrderVehicleList = new ArrayList<>(LiveOnMappers.orderEntityToOrderVehicleEntity(orderVEntityList));
+                    adapter.setOrderList(mOrderVehicleList);
+                }
             }
         });
     }
@@ -90,5 +101,4 @@ public class VehicleListActivity extends MainActivity
         super.onBackPressed();
         backToUserProfileActivity(this);
     }
-
 }
